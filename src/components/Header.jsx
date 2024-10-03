@@ -14,6 +14,11 @@ const Header = () => {
     }
   };
 
+  const handleInput = (e) => {
+    const value = e.target.value;
+    dispatch({ type: actionsTypes.SEARCH_PRODUCTS, payload: value });
+  };
+
   return (
     <>
       <header className="bg-indigo-700 p-3 flex justify-between">
@@ -33,6 +38,7 @@ const Header = () => {
             type="text"
             className="p-2 rounded-lg outline-none"
             placeholder="Search..."
+            onChange={handleInput}
           />
           <button
             className="text-white p-2.5 rounded-full bg-indigo-800 text-2xl"

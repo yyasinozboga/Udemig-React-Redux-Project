@@ -1,9 +1,20 @@
-# React + Vite
+# Udemig React Redux Project
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project was creted by Yasin Özboğa.
+This project was created with React.js, JavaScript, React-Redux and Tailwind technologies.
+React-Redux was used for state management, Tailwind was used for style management.
+Products filtering, product deleting, product editing and product adding were in this project for increase experience of the users.
 
-Currently, two official plugins are available:
+## Used Libraries
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-# Udemig-React-Redux-Project
+```
+react-router-dom react-icons react-redux redux tailwind
+```
+
+# Start the project
+
+- `npm run dev`
+
+## Preview
+
+<img src="src/simsizvideoClipchampileyapld1-ezgif.com-video-to-gif-converter.gif">

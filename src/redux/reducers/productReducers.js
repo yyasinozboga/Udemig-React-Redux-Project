@@ -2,6 +2,7 @@ import actionsTypes from "../actionsTypes";
 
 const initialState = {
   products: [],
+  text: "",
 };
 
 const productReducer = (state = initialState, action) => {
@@ -12,13 +13,13 @@ const productReducer = (state = initialState, action) => {
 
     case actionsTypes.DELETE:
       const filtered = state.products.filter(
-        (product) => product.id !== action.payload
+        (product) => product.id !== action.payload,
       );
       return { products: filtered };
 
     case actionsTypes.UPDATE:
       const updated = state.products.map((product) =>
-        product.id === action.payload.id ? action.payload : product
+        product.id === action.payload.id ? action.payload : product,
       );
 
       return { products: updated };
@@ -36,6 +37,8 @@ const productReducer = (state = initialState, action) => {
 
       return { products: newProductList };
 
+    case actionsTypes.SEARCH_PRODUCTS:
+      return { ...state, text: action.payload };
     default:
       return state;
   }

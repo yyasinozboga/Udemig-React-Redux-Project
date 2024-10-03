@@ -5,7 +5,7 @@ const Products = () => {
   const { products } = useSelector((store) => store.productReducer);
 
   return (
-    <main className="p-3">
+    <main className="p-3 flex gap-5">
       {products.map((product) => (
         <Product key={product.id} product={product} />
       ))}
