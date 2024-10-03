@@ -1,14 +1,18 @@
 import { MdOutlinePostAdd } from "react-icons/md";
-import { useDispatch, useSelector } from "react-redux";
-import actionsTypes from "../redux/actionsTypes";
 import Modal from "./Modal";
+import { useState } from "react";
+import { useDispatch } from "react-redux";
+import actionsTypes from "../redux/actionsTypes";
 
 const Header = () => {
+  const [isOpen, setIsOpen] = useState(false);
   const dispatch = useDispatch();
-  const handleClick = () => {
-    dispatch({ type: actionsTypes.OPEN });
+  const handleChange = (e) => {
+    const payload = e.target.value;
+    if (payload) {
+      dispatch({ type: actionsTypes.SORT_PRODUCTS, payload });
+    }
   };
-  const { isOpen } = useSelector((store) => store.productReducer);
 
   return (
     <>
@@ -16,9 +20,13 @@ const Header = () => {
         <h1 className="text-white text-3xl">REACT UYGULAMA</h1>
 
         <div className="flex items-center gap-5">
-          <select className="p-2 rounded-lg outline-none">
-            <option value="increase">Artan</option>
-            <option value="decrease">Azalan</option>
+          <select
+            className="p-2 rounded-lg outline-none"
+            onChange={handleChange}
+          >
+            <option value="">Seçiniz</option>
+            <option value="asc">Artan</option>
+            <option value="desc">Azalan</option>
           </select>
 
           <input
@@ -28,14 +36,14 @@ const Header = () => {
           />
           <button
             className="text-white p-2.5 rounded-full bg-indigo-800 text-2xl"
-            onClick={handleClick}
+            onClick={() => setIsOpen(true)}
           >
             <MdOutlinePostAdd />
           </button>
         </div>
       </header>
 
-      {isOpen && <Modal close={handleClick} />}
+      {isOpen && <Modal close={() => setIsOpen(false)} />}
     </>
   );
 };
